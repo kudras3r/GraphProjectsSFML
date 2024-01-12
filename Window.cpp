@@ -20,8 +20,9 @@ void Window::renderWindow() {
 
 void Window::drawPoints() {
 	for (coords point : *this->coordsDataP) {
-		sf::CircleShape sfPoint;
-		sfPoint.setPosition(point.x, point.y);
+		std::cout << point.x << " " << point.y << "\n";
+		sf::CircleShape sfPoint(5.f);
+		sfPoint.setPosition(point.x * 20, point.y * 20);
 		sfPoint.setFillColor(sf::Color::White);
 		this->window->draw(sfPoint);
 	}
@@ -49,4 +50,5 @@ void Window::initWindow() {
 	this->videoMode.width = this->width;
 	this->videoMode.height = this->heigh;
 	this->window = new sf::RenderWindow(this->videoMode, "Graph");
+	this->window->setFramerateLimit(60);
 }
