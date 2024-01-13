@@ -2,6 +2,8 @@
 
 Window::Window() {
 	this->initWindow();
+	this->x0 = this->width / 2;
+	this->y0 = this->heigh / 2;
 }
 
 Window::~Window() {
@@ -21,14 +23,29 @@ void Window::renderWindow() {
 void Window::drawPoints() {
 	for (coords point : *this->coordsDataP) {
 		std::cout << point.x << " " << point.y << "\n";
-		sf::CircleShape sfPoint(5.f);
-		sfPoint.setPosition(point.x * 20, point.y * 20);
+		sf::CircleShape sfPoint(2.f);
+		sfPoint.setPosition(this->x0 + point.x * scale, this->y0 - point.y * scale);
 		sfPoint.setFillColor(sf::Color::White);
 		this->window->draw(sfPoint);
 	}
 }
 
+void Window::drawCoordsVectors() {
+	sf::RectangleShape Ox(sf::Vector2f(this->width, 1));
+	sf::RectangleShape Oy(sf::Vector2f(1, this->heigh));
+
+	Ox.setFillColor(sf::Color::White);
+	Oy.setFillColor(sf::Color::White);
+
+	Ox.setPosition(0, this->y0);
+	Oy.setPosition(this->x0, 0);
+
+	this->window->draw(Ox);
+	this->window->draw(Oy);
+}
+
 void Window::drawAll() {
+	this->drawCoordsVectors();
 	this->drawPoints();
 }
 

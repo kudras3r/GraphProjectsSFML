@@ -12,22 +12,28 @@ class Window {
 		// Public Methods
 		bool open();
 		void renderWindow();
+
 		void drawPoints();
+		void drawCoordsVectors();
 		void drawAll();
+
 		void updateWindow();
+
 		void getDataPointer(std::vector<coords>*);
 
 		// Variables
 		sf::RenderWindow* window;
 		sf::VideoMode videoMode;
-		int width = 1240;
-		int heigh = 720;
+		const int width = 1240;
+		const int heigh = 720;
 
 	private:
 		// Initialize
 		void initWindow();
 
 		// Private var
+		int x0, y0;
+		const int scale = 100;
 		sf::Event event;
 		std::vector<coords>* coordsDataP;
 };

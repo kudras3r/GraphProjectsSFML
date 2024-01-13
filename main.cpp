@@ -6,7 +6,7 @@
 int main() {
 	
 	Window window;
-	Math m(&window.width, &window.heigh);
+	Math m;
 	std::vector<coords>* p = m.takeDataPointer();
 	window.getDataPointer(p);
 	// Loop
