@@ -32,9 +32,13 @@ class Window {
 		void initWindow();
 
 		// Private var
+		std::stringstream ss;
 		int x0, y0;
 		const int scale = 100;
 		sf::Event event;
+		sf::Font font;
+		sf::Text text;
 		std::vector<coords>* coordsDataP;
+
 };
 

@@ -12,7 +12,7 @@ int main() {
 	// Loop
 	while (window.open()) {
 
-
+		
 		window.updateWindow();
 		window.renderWindow();
 		

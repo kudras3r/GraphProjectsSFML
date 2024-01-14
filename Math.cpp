@@ -6,7 +6,7 @@ Math::Math() {
 }
 
 Math::~Math() {
-	delete[] & this->points;
+	delete[] &this->points;
 }
 
 std::vector<coords>* Math::takeDataPointer() {
