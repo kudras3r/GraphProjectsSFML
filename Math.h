@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Libs.h"
+#include "Parser.h"
 
 struct coords {
 	float x;
@@ -15,10 +16,13 @@ class Math {
 		std::vector<coords>* takeDataPointer();
 
 		// Constructor / Destructor
-		Math();
-		~Math();
 		
-	private:
-		void calculatingPoints();
+		
+		//Math();
+		~Math();
+
+		// Methods
+		void calculatingPoints(std::string expression);
+		
 };
 

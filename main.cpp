@@ -4,9 +4,10 @@
 #include "Math.h"
 
 int main() {
-	
-	Window window;
+
 	Math m;
+	Window window(&m);
+
 	std::vector<coords>* p = m.takeDataPointer();
 	window.getDataPointer(p);
 	// Loop
@@ -19,4 +20,5 @@ int main() {
 
 	}
 	return 0;
+
 }

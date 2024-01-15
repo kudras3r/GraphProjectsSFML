@@ -2,11 +2,12 @@
 
 #include "Libs.h"
 #include "Math.h"
+#include "Parser.h"
 
 class Window {
     public:
 		// Constructor / Destructor
-		Window();
+		Window(Math* pointer);
 		~Window();
 
 		// Public Methods
@@ -22,6 +23,7 @@ class Window {
 		void getDataPointer(std::vector<coords>*);
 
 		// Variables
+		std::stringstream ss;
 		sf::RenderWindow* window;
 		sf::VideoMode videoMode;
 		const int width = 1240;
@@ -32,12 +34,14 @@ class Window {
 		void initWindow();
 
 		// Private var
-		std::stringstream ss;
+		Math* mathP;
+		
 		int x0, y0;
 		const int scale = 100;
 		sf::Event event;
 		sf::Font font;
 		sf::Text text;
+		
 		std::vector<coords>* coordsDataP;
 
 };

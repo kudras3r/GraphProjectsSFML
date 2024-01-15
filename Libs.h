@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include <sstream>
+#include <stack>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>

@@ -1,7 +1,8 @@
 #include "Window.h"
 
-Window::Window() {
+Window::Window(Math* pointer) {
 
+	this->mathP = pointer;
 	this->initWindow();
 
 	this->x0 = this->width / 2;
@@ -81,10 +82,28 @@ void Window::updateWindow() {
 
 		case sf::Event::TextEntered:
 
-			if (event.text.unicode < 128) {
-				ss << static_cast<char>(event.text.unicode);
-				std::cout << static_cast<char>(event.text.unicode);
+			if (event.text.unicode == 8) {  // Backspace press (clear sstream and text)
+				ss.str("");
+				ss << "y=";
+				this->text.setString("y=");
+			}
+
+			else if (event.text.unicode == 13) {  // Enter press (let calculate)
+			
+				std::string a;
+				for (unsigned i = 2; i < this->ss.str().length(); i++) {
+					a += this->ss.str()[i];
+				}
+				
+				this->mathP->calculatingPoints(a);
+
+			}
+
+			else if (event.text.unicode < 128) {
+				
+				ss << static_cast<char>(event.text.unicode);	
 				this->text.setString(ss.str());
+
 			}
 
 			break;
@@ -110,6 +129,7 @@ void Window::initWindow() {
 	this->text.setFont(this->font);
 	this->text.setCharacterSize(32);
 	this->text.setFillColor(sf::Color::White);
-	this->text.setString("NONE");
+	this->ss << "y=";
+	this->text.setString("y=");
 
 }
