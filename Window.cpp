@@ -49,7 +49,19 @@ void Window::updateWindow() {
 
 		case sf::Event::TextEntered:
 
-			if (event.text.unicode == 8) {  // Backspace press (clear sstream and text)
+			if (event.text.unicode == 39) {  // scope ++ (')
+
+				this->scale += 20; 
+
+			}
+
+			else if (event.text.unicode == 47) {  // scope -- (/)
+
+				this->scale -= 20;  
+
+			}
+
+			else if (event.text.unicode == 8) {  // Backspace press (clear sstream and text)
 				ss.str("");
 				ss << "y=";
 				this->text.setString("y=");
@@ -121,10 +133,11 @@ void Window::drawPoints() {
 
 	for (coords point : *this->coordsDataP) {
 
-		//std::cout << point.x << " " << point.y << "\n";
 		sf::CircleShape sfPoint(2.f);
+
 		sfPoint.setPosition(this->x0 + point.x * scale, this->y0 - point.y * scale);
 		sfPoint.setFillColor(sf::Color::White);
+
 		this->window->draw(sfPoint);
 
 	}
@@ -145,7 +158,7 @@ void Window::drawCoordsVectors() {
 	this->window->draw(Ox);
 	this->window->draw(Oy);
 
-	for (float i = 0.f; i < 10.f; i += 1.f) {
+	for (float i = 0.f; i < 100.f; i += 1.f) {
 
 		sf::CircleShape pointX(1.2f);
 		sf::CircleShape pointY(1.2f);

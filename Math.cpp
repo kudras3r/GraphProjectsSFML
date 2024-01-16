@@ -20,7 +20,7 @@ void Math::calculatingPoints(std::string expression) {
 
 	coords point = { 0, 0 };
 	
-	for (float x = -10.f; x < 10.f; x += this->quality) {
+	for (float x = -100.f; x < 100.f; x += this->quality) {  // TODO
 
 		point.x = x;
 		point.y = calc(expression, x);
