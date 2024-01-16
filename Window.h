@@ -5,44 +5,49 @@
 #include "Parser.h"
 
 class Window {
-    public:
-		// Constructor / Destructor
-		Window(Math* pointer);
-		~Window();
+	
+	private:
 
-		// Public Methods
-		bool open();
-		void renderWindow();
+		// Initialize
+		void initWindow(Math*);
 
+		// Private methods
 		void drawPoints();
 		void drawCoordsVectors();
 		void drawAll();
 
-		void updateWindow();
+		// Private vars
+		Math* mathP;
 
-		void getDataPointer(std::vector<coords>*);
+		int x0, y0;
+		int scale;
 
-		// Variables
+		sf::Event event;
+		sf::Font font;
+		sf::Text text;
+
+		std::vector<coords>* coordsDataP;
+
 		std::stringstream ss;
+
 		sf::RenderWindow* window;
 		sf::VideoMode videoMode;
 		const int width = 1240;
 		const int heigh = 720;
 
-	private:
-		// Initialize
-		void initWindow();
+    public:
+		
+		// Constructor / Destructor
+		Window(Math* pointer);
+		~Window();
 
-		// Private var
-		Math* mathP;
-		
-		int x0, y0;
-		const int scale = 100;
-		sf::Event event;
-		sf::Font font;
-		sf::Text text;
-		
-		std::vector<coords>* coordsDataP;
+		// Service
+		bool open();
+
+		void renderWindow();
+		void updateWindow();
+
+		void getDataPointer(std::vector<coords>*);
 
 };
 

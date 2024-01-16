@@ -2,8 +2,7 @@
 
 #include "Libs.h"
 
-// TODO
-
+// TODO 
 
 static const double Pi = acos(-1); //ќбъ€вл€ем значение числа ѕи
 

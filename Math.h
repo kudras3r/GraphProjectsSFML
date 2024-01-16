@@ -9,20 +9,22 @@ struct coords {
 };
 
 class Math {
+
 	public:
 
 		// Data
 		std::vector<coords> points;
 		std::vector<coords>* takeDataPointer();
 
-		// Constructor / Destructor
-		
-		
-		//Math();
+		// Destructor
 		~Math();
 
 		// Methods
 		void calculatingPoints(std::string expression);
+
+	public:
+
+		const float quality = 0.01f;  // !!! < 0.0001 IS BAD !!!
 		
 };
 
